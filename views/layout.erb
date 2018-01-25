@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/main.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>JustTVSeries</title>
+</head>
+<div class="layout">
+<header style="font-family: Roboto-Slab;">
+ <div class="bar">   
+        <h1> JtS </h1>
+        <input type="text" placeholder="Search...">
+        <a href="/login"> Log in </a>
+    </div>
+</header>
+<body>
+ <main>
+    <%= yield %>
+</main>
+<footer>
+    <a href="/"> Home </a>
+    <a> Help </a>
+    <a> Contact us </a>
+    <a> FAQ </a>
+    <a> About us </a>
+</footer>
+</div>
+</body>
+</div>
+</html>
