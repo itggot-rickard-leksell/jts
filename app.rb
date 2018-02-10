@@ -1,8 +1,17 @@
 
 class App < Sinatra::Base
 
+	enable:sessions
+
 	get '/' do
+		if session[:user_id]
+		current_id = session[:user_id]
+		db = SQLite3::Database::new("./jts.db")
+		name = db.execute("SELECT name FROM users WHERE id IS ?", [current_id])
+		erb(:main, locals:{name: name})
+		else
 		erb(:main)
+		end
 	end
 
 	get '/login' do
@@ -16,13 +25,13 @@ class App < Sinatra::Base
 	post '/login' do
 		name = params[:name]
 		password = params[:password]
-		db = SQLite3::Database::new("./database/user_notes.sqlite")
+		db = SQLite3::Database::new("./jts.db")
 		real_password = db.execute("SELECT password FROM users WHERE name=?", [name])
 		if real_password != [] && BCrypt::Password.new(real_password[0][0]) == password
 			session[:user_id] = db.execute("SELECT id FROM users WHERE name=?", [name])[0][0]
-			redirect('/login')
-		else
 			redirect('/')
+		else
+			erb(:login, locals:{failure: "Wrong password or username. Please try again."})
 		end
 	end
 
@@ -31,7 +40,7 @@ class App < Sinatra::Base
 		new_password = params[:password]
 		confirmed_password = params[:confirmed_password]
 		if new_password == confirmed_password
-			db = SQLite3::Database::new("./database/user_notes.sqlite")
+			db = SQLite3::Database::new("./jts.db")
 			taken_name = db.execute("SELECT * FROM users WHERE name IS ?", [new_name])
 			if taken_name == []
 				hashed_password = BCrypt::Password.create(new_password)

@@ -5,6 +5,7 @@ body{
 	background: linear-gradient(#BDBDBD, white); 	
 }
 
+
 header{
 	height: 83px;
 	width: 75%;
@@ -102,7 +103,16 @@ main{
 	height: 100vh;
 	background-color: white;
 	box-shadow: 0 10px 20px rgba(0,0,0,0.56), 0 6px 6px rgba(0,0,0,0.56); 
+}
 
+.log{
+	position: absolute;
+	top: 23px;
+	right: 220px;
+	text-decoration: none;
+	color: white;
+	font-family: 'Roboto Slab';
+	font-size: 22px;
 }
 
 .login{
