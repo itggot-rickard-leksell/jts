@@ -1,6 +1,29 @@
   <%if defined? name%>
-  <a class="log" href="login"><%=name[0][0]%></a>
+  <a class="log" href="profile"><%=name[0][0]%></a>
   <%else%>
   <a class="log" href="login">Log in</a>
   <%end%>
 
+  <div class="main">
+  <figure>
+   <a href="/serie/game_of_thrones"><img style="width: 340px; padding: 10px;" src="<%=pic%>" title="Game of Thrones"></a>
+    <figcaption>Most Popular TV-Show right now</figcaption>
+</figure>
+<div class="second">
+  <div class="other">
+  <h1> Other TV-Shows </h1>
+  <ul>
+  <li><a href="/serie/rick_and_morty"><img style="width: 120px; height: 180px;" src="./img/rick_and_morty.jpg" title="Rick and Morty"></a>Rick and Morty</li>
+  <li><a href="/serie/breaking_bad"><img style="width: 120px; height: 180px;" src="./img/breaking_bad.jpg" title="Breaking Bad"></a>Breaking Bad</li>
+  <li><a href="/serie/the_wire"><img style="width: 120px; height: 180px;" src="./img/the_wire.jpg" title="The Wire"></a>The Wire</li>
+  <li><a href="/serie/band_of_brothers"><img style="width: 120px; height: 180px;" src="./img/band_of_brothers.jpg" title="Band of Brothers"></a>Band of Brothers</li>
+  </ul>
+  </div>
+  <div class="hr">
+   <hr>
+   </div>
+   <div class="review">
+   <h1> Latest Review </h1>
+   </div>
+</div>
+  </div>

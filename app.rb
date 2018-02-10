@@ -3,13 +3,16 @@ class App < Sinatra::Base
 	enable:sessions
 
 	get '/' do
+		db = SQLite3::Database::new("./JTS_series.db")
+		pic = db.execute("SELECT pic FROM Series WHERE name IS ?", "Game of Thrones")[0][0]
+	
 		if session[:user_id]
 			current_id = session[:user_id]
 			db = SQLite3::Database::new("./jts.db")
 			name = db.execute("SELECT name FROM users WHERE id IS ?", [current_id])
-			erb(:main, locals:{name: name})
+			erb(:main, locals:{name: name, pic: pic})
 		else
-			erb(:main)
+			erb(:main, locals:{pic: pic})
 		end
 	end
 
@@ -51,5 +54,21 @@ class App < Sinatra::Base
 		else
 			erb(:new_user, locals:{failure: "Passwords didn't match. Please try again."})
 		end
-	end    
+	end  
+
+	get '/serie/:name' do
+		serie = params[:name]
+		erb(:serie, locals: {serie:serie})
+	end
+	
+	get '/profile' do
+		if session[:user_id]
+			current_id = session[:user_id]
+			db = SQLite3::Database::new("./jts.db")
+			name = db.execute("SELECT name FROM users WHERE id IS ?", [current_id])
+			erb(:profile, locals:{name: name})
+		else
+		erb(:profile)
+	end
+end
 end
