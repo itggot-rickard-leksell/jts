@@ -27,13 +27,14 @@ header{
 
 .bar input{
 	height: 35px; 
-	width: 240px;
+	width: 360px;
 	padding-left: 6px;
 	font-family: 'Roboto Slab', serif;
 	border-radius: 4px;
 	border: none;
 	position: absolute;
-	left: 25%;
+	top: 2vh;
+	left: 35%;
 }
 
 .bar h1{
@@ -107,8 +108,8 @@ main{
 
 .log{
 	position: absolute;
-	top: 23px;
-	right: 220px;
+	top: 3vh;
+	right: 14vw;
 	text-decoration: none;
 	color: white;
 	font-family: 'Roboto Slab';
@@ -117,7 +118,9 @@ main{
 
 .login{
 	position: absolute;
-	top: 83px;
+	top: 90px;
+	padding: 10px;
+
 }
 
 .new_user{

@@ -1,16 +1,15 @@
-
 class App < Sinatra::Base
 
 	enable:sessions
 
 	get '/' do
 		if session[:user_id]
-		current_id = session[:user_id]
-		db = SQLite3::Database::new("./jts.db")
-		name = db.execute("SELECT name FROM users WHERE id IS ?", [current_id])
-		erb(:main, locals:{name: name})
+			current_id = session[:user_id]
+			db = SQLite3::Database::new("./jts.db")
+			name = db.execute("SELECT name FROM users WHERE id IS ?", [current_id])
+			erb(:main, locals:{name: name})
 		else
-		erb(:main)
+			erb(:main)
 		end
 	end
 
@@ -52,5 +51,5 @@ class App < Sinatra::Base
 		else
 			erb(:new_user, locals:{failure: "Passwords didn't match. Please try again."})
 		end
-	end
-end     
+	end    
+end

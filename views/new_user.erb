@@ -7,16 +7,21 @@
     <title>Document</title>
 </head>
 <body>
-    <div class="new_user">
+  <%if defined? name%>
+  <a class="log" href="login"><%=name[0][0]%></a>
+  <%else%>
+  <a class="log" href="login">Log in</a>
+  <%end%>
+  <div class="new_user">
     <a href="/login"> Back </a>
     <form action="/new_user" method="post">
-    <input type="text" name="name" placeholder="Username">
-    <input type="password" name="password" placeholder="Password">
-    <input type="password" name="confirmed_password" placeholder="Confirm password">
-    <input type="submit" value="Create new user">
-      <%if defined? failure%>
-    <%=failure%>
-    <%end%>
+        <input type="text" name="name" placeholder="Username">
+        <input type="password" name="password" placeholder="Password">
+        <input type="password" name="confirmed_password" placeholder="Confirm password">
+        <input type="submit" value="Create new user">
+        <%if defined? failure%>
+        <%=failure%>
+        <%end%>
     </div>
 </body>
 </html>
