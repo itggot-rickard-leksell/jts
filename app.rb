@@ -16,6 +16,10 @@ class App < Sinatra::Base
 		end
 	end
 
+	post '/' do
+		redirect('/')
+	end
+
 	get '/login' do
 		erb(:login)
 	end

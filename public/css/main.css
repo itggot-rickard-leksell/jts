@@ -193,10 +193,23 @@ hr{
 	text-align: center;
 }
 
+.reviewpage{
+	display: flex;
+}
+
 .revs{
-	position: absolute;
-	top: 83px;
+	width: 50vw;
+	margin-top: 83px;
+	height: 100vh;
 	font-family: 'Roboto Slab', serif; 
+}
+
+.otherrevs{
+	width: 50vw;
+	margin-top: 93px;
+	height: 100vh;
+	font-family: 'Roboto Slab', serif;
+	text-align: center;
 }
 
 input.star { display: none; }
@@ -277,3 +290,4 @@ form{
 .revs h1{
 	padding: 10px;
 }
+
